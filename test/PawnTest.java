@@ -12,8 +12,11 @@ public class PawnTest {
 
     @Test
     public void testCreate() {
-        Pawn pawn = new Pawn();
+        Pawn pawn = new Pawn("white");
         Assert.assertEquals("white", pawn.getColor());
+
+        Pawn secondPawn = new Pawn("black");
+        Assert.assertEquals("black", secondPawn.getColor());
     }
 
 }
