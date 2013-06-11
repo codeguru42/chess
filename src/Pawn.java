@@ -7,4 +7,8 @@
  */
 public class Pawn {
 
+    public String getColor() {
+        return "white";
+    }
+
 }
