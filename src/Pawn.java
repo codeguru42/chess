@@ -5,13 +5,6 @@
  * To Public License, Version 2, as published by Sam Hocevar. See
  * http://sam.zoy.org/wtfpl/COPYING for more details.
  */
-import org.junit.Test;
-
-public class PawnTest {
-
-    @Test
-    public void testCreate() {
-        new Pawn();
-    }
+public class Pawn {
 
 }
