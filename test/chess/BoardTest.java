@@ -7,6 +7,7 @@
  */
 package chess;
 
+import chess.pieces.Pawn;
 import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
