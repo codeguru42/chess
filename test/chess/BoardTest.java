@@ -8,37 +8,37 @@
 package chess;
 
 import chess.pieces.Pawn;
-import java.util.List;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class BoardTest {
 
+    private Board board;
+
+    @Before
+    public void setUp() {
+        this.board = new Board();
+    }
+
     @Test
     public void testCreate() {
-        Board board = new Board();
-        Assert.assertEquals(0, board.getPawnCount());
+        Assert.assertEquals(0, this.board.getPawnCount());
     }
 
     @Test
     public void testAddPawn() {
-        Board board = new Board();
-        Pawn pawn = new Pawn(Pawn.WHITE);
+        Pawn whitePawn = new Pawn(Pawn.WHITE);
 
-        List<Pawn> pawns = board.getPawns();
-        Assert.assertEquals(0, pawns.size());
+        this.board.addPawn(whitePawn);
+        Assert.assertEquals(1, this.board.getPawnCount());
+        Assert.assertEquals(whitePawn, this.board.getPawn(0));
 
-        board.addPawn(pawn);
-        Assert.assertEquals(1, board.getPawnCount());
-        Assert.assertEquals(1, pawns.size());
-        Assert.assertEquals(pawn, pawns.get(0));
-
-        Pawn secondPawn = new Pawn(Pawn.BLACK);
-        board.addPawn(secondPawn);
-        Assert.assertEquals(2, board.getPawnCount());
-        Assert.assertEquals(2, pawns.size());
-        Assert.assertEquals(pawn, pawns.get(0));
-        Assert.assertEquals(secondPawn, pawns.get(1));
+        Pawn blackPawn = new Pawn(Pawn.BLACK);
+        this.board.addPawn(blackPawn);
+        Assert.assertEquals(2, this.board.getPawnCount());
+        Assert.assertEquals(whitePawn, this.board.getPawn(0));
+        Assert.assertEquals(blackPawn, this.board.getPawn(1));
     }
 
 }

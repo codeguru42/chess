@@ -25,8 +25,8 @@ public class Board {
         this.pawns.add(pawn);
     }
 
-    public List<Pawn> getPawns() {
-        return this.pawns;
+    public Pawn getPawn(int index) {
+        return this.pawns.get(index);
     }
 
 }
