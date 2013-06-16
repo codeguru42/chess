@@ -8,6 +8,8 @@
 public class Pawn {
 
     private String color;
+    public static final String BLACK = "black";
+    public static final String WHITE = "white";
 
     public Pawn(String color) {
         this.color = color;
