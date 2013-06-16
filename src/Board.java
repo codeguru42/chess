@@ -7,8 +7,14 @@
  */
 public class Board {
 
+    private int pawnCount = 0;
+
     public int getPawnCount() {
-        return 0;
+        return this.pawnCount;
+    }
+
+    public void addPawn(Pawn pawn) {
+        ++this.pawnCount;
     }
 
 }
