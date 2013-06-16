@@ -5,15 +5,10 @@
  * To Public License, Version 2, as published by Sam Hocevar. See
  * http://sam.zoy.org/wtfpl/COPYING for more details.
  */
-import org.junit.Assert;
-import org.junit.Test;
+public class Board {
 
-public class BoardTest {
-
-    @Test
-    public void testCreate() {
-        Board board = new Board();
-        Assert.assertEquals(0, board.getPawnCount());
+    public int getPawnCount() {
+        return 0;
     }
 
 }
