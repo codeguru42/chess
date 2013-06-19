@@ -17,6 +17,11 @@ public class Pawn {
         this.color = color;
     }
 
+    @Override
+    public String toString() {
+        return this.color.equals(WHITE) ? "p" : "P";
+    }
+
     public String getColor() {
         return this.color;
     }

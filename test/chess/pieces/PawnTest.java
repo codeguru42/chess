@@ -8,17 +8,30 @@
 package chess.pieces;
 
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class PawnTest {
 
+    private Pawn whitePawn;
+    private Pawn blackPawn;
+
+    @Before
+    public void setUp() {
+        this.whitePawn = new Pawn(Pawn.WHITE);
+        this.blackPawn = new Pawn(Pawn.BLACK);
+    }
+
     @Test
     public void testCreate() {
-        Pawn firstPawn = new Pawn(Pawn.WHITE);
-        Assert.assertEquals(Pawn.WHITE, firstPawn.getColor());
+        Assert.assertEquals(Pawn.WHITE, this.whitePawn.getColor());
+        Assert.assertEquals(Pawn.BLACK, this.blackPawn.getColor());
+    }
 
-        Pawn secondPawn = new Pawn(Pawn.BLACK);
-        Assert.assertEquals(Pawn.BLACK, secondPawn.getColor());
+    @Test
+    public void testToString() {
+        Assert.assertEquals("p", this.whitePawn.toString());
+        Assert.assertEquals("P", this.blackPawn.toString());
     }
 
 }
