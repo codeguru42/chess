@@ -13,15 +13,13 @@ import java.util.List;
 
 public class Board {
 
-    private int pawnCount = 0;
     private List<Pawn> pawns = new ArrayList<Pawn>();
 
     public int getPawnCount() {
-        return this.pawnCount;
+        return pawns.size();
     }
 
     public void addPawn(Pawn pawn) {
-        ++this.pawnCount;
         this.pawns.add(pawn);
     }
 
