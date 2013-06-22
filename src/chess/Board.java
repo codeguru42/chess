@@ -13,18 +13,56 @@ import java.util.List;
 
 public class Board {
 
-    private List<Pawn> pawns = new ArrayList<Pawn>();
+    private List<Pawn> secondRank = new ArrayList<Pawn>();
+    private List<Pawn> seventhRank = new ArrayList<Pawn>();
+
+    public Board() {
+        this.initialize();
+    }
+
+    public void initialize() {
+        for (int i = 0; i < 8; ++i) {
+            this.secondRank.add(new Pawn(Pawn.WHITE));
+            this.seventhRank.add(new Pawn(Pawn.BLACK));
+        }
+    }
 
     public int getPawnCount() {
-        return pawns.size();
+        return secondRank.size() + seventhRank.size();
     }
 
-    public void addPawn(Pawn pawn) {
-        this.pawns.add(pawn);
-    }
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
 
-    public Pawn getPawn(int index) {
-        return this.pawns.get(index);
+        for (int i = 0; i < 8; ++i) {
+            builder.append('.');
+        }
+        builder.append('\n');
+
+        for (int i = 0; i < 8; ++i) {
+            builder.append(this.seventhRank.get(i).toString());
+        }
+        builder.append('\n');
+
+        for (int i = 0; i < 4; ++i) {
+            for (int j = 0; j < 8; ++j) {
+                builder.append('.');
+            }
+            builder.append('\n');
+        }
+
+        for (int i = 0; i < 8; ++i) {
+            builder.append(this.secondRank.get(i).toString());
+        }
+        builder.append('\n');
+
+        for (int i = 0; i < 8; ++i) {
+            builder.append('.');
+        }
+        builder.append('\n');
+
+        return builder.toString();
     }
 
 }

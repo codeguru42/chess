@@ -7,13 +7,13 @@
  */
 package chess;
 
-import chess.pieces.Pawn;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 public class BoardTest {
 
+    private static final String INITIAL_BOARD_STRING = "........\nPPPPPPPP\n........\n........\n........\n........\npppppppp\n........\n";
     private Board board;
 
     @Before
@@ -23,22 +23,8 @@ public class BoardTest {
 
     @Test
     public void testCreate() {
-        Assert.assertEquals(0, this.board.getPawnCount());
-    }
-
-    @Test
-    public void testAddPawn() {
-        Pawn whitePawn = new Pawn(Pawn.WHITE);
-
-        this.board.addPawn(whitePawn);
-        Assert.assertEquals(1, this.board.getPawnCount());
-        Assert.assertEquals(whitePawn, this.board.getPawn(0));
-
-        Pawn blackPawn = new Pawn(Pawn.BLACK);
-        this.board.addPawn(blackPawn);
-        Assert.assertEquals(2, this.board.getPawnCount());
-        Assert.assertEquals(whitePawn, this.board.getPawn(0));
-        Assert.assertEquals(blackPawn, this.board.getPawn(1));
+        Assert.assertEquals(16, this.board.getPawnCount());
+        Assert.assertEquals(INITIAL_BOARD_STRING, this.board.toString());
     }
 
 }
