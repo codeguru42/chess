@@ -13,7 +13,10 @@ import org.junit.Test;
 
 public class BoardTest {
 
-    private static final String INITIAL_BOARD_STRING = "........\nPPPPPPPP\n........\n........\n........\n........\npppppppp\n........\n";
+    private static final String INITIAL_BOARD_STRING = "........" + Board.NEWLINE + "PPPPPPPP" + Board.NEWLINE
+            + "........" + Board.NEWLINE + "........" + Board.NEWLINE + "........" + Board.NEWLINE + "........"
+            + Board.NEWLINE + "pppppppp" + Board.NEWLINE + "........" + Board.NEWLINE;
+
     private Board board;
 
     @Before

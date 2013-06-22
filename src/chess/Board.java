@@ -13,6 +13,8 @@ import java.util.List;
 
 public class Board {
 
+    public static final String NEWLINE = System.getProperty("line.separator");
+
     private List<Pawn> secondRank = new ArrayList<Pawn>();
     private List<Pawn> seventhRank = new ArrayList<Pawn>();
 
@@ -31,36 +33,34 @@ public class Board {
         return secondRank.size() + seventhRank.size();
     }
 
+    private void addEmptyRank(StringBuilder builder) {
+        for (int i = 0; i < 8; ++i) {
+            builder.append('.');
+        }
+        builder.append(NEWLINE);
+    }
+
     @Override
     public String toString() {
         StringBuilder builder = new StringBuilder();
 
-        for (int i = 0; i < 8; ++i) {
-            builder.append('.');
-        }
-        builder.append('\n');
+        this.addEmptyRank(builder);
 
         for (int i = 0; i < 8; ++i) {
             builder.append(this.seventhRank.get(i).toString());
         }
-        builder.append('\n');
+        builder.append(NEWLINE);
 
         for (int i = 0; i < 4; ++i) {
-            for (int j = 0; j < 8; ++j) {
-                builder.append('.');
-            }
-            builder.append('\n');
+            this.addEmptyRank(builder);
         }
 
         for (int i = 0; i < 8; ++i) {
             builder.append(this.secondRank.get(i).toString());
         }
-        builder.append('\n');
+        builder.append(NEWLINE);
 
-        for (int i = 0; i < 8; ++i) {
-            builder.append('.');
-        }
-        builder.append('\n');
+        this.addEmptyRank(builder);
 
         return builder.toString();
     }
