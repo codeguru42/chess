@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="chess" default="test" basedir=".">
+    <property name="junit.jar" value="/usr/share/java/junit4.jar"/>
+    <property name ="src.dir" value="${basedir}/src"/>
+    <property name ="build.dir" value="${basedir}/bin"/>
+    
+    <path id="classpath">
+        <pathelement location="${junit.jar}"/>
+        <pathelement location="${build.dir}"/>
+    </path>
+    
+    <target name="init">
+        <mkdir dir="${build.dir}" />
+    </target>
+	
+	<target name="build" depends="init" description="build all">
+		<javac
+			srcdir="${src.dir}" destdir="${build.dir}"
+			source="1.7"
+			deprecation="on" debug="on" optimize="off" includes="**">
+			<classpath refid="classpath" />
+		</javac>
+	</target>
+	
+	<target name="test" depends="build" description="Run JUnit tests">
+		<java classname="org.junit.runner.JUnitCore" fork="yes">
+			<arg value="chess.AllTests"/>
+			<classpath refid="classpath"/>
+		</java>
+	</target>
+	
+	<target name="clean">
+		<delete dir="${build.dir}"/>
+	</target>
+	
+	<target name="rebuildAll" depends="clean,build" description="rebuild all"/>
+</project>
